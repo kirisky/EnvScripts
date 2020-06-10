@@ -24,3 +24,10 @@ sudo cp ./config/docker-ce.repo /etc/yum.repos.d/
 sudo dnf -y install docker-ce docker-ce-cli containerd.io
 
 sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
+
+
+echo "" >> $shellConfigFile
+echo "" >> $shellConfigFile
+
+userBinFolder=~/bin
+echo "export PATH=$userBinFolder:$PATH" >> $shellConfigFile

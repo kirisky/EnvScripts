@@ -1,0 +1,16 @@
+#/bin/sh
+
+# Reference
+# https://misc.flogisoft.com/bash/tip_colors_and_formatting
+
+# 88/256 color
+
+# foreground
+lightRedColor=$'\e[38;5;9m'
+lightGreenColor=$'\e[38;5;46m'
+
+# background
+lightRedBGColor=$'\e[48;5;9m'
+lightGreenBGColor=$'\e[48;5;46m'
+
+endColor=$'\e[0m'

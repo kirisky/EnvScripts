@@ -1,0 +1,27 @@
+#/bin/sh
+
+#
+# load shell colors
+#
+source ./common/16Color
+
+#
+# Set a path for shell config file
+#
+shellConfigFile=~/.zshrc
+
+#
+# Fetch paths for change the directory
+#
+currentPath=`pwd`
+basePath="./fedora"
+
+#
+# Aquire scripts
+#
+scripts=$(ls $basePath | grep "\.s")
+
+#
+# Execute the scripts by the executor file
+#
+source ./common/executor

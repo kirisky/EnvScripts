@@ -1,0 +1,23 @@
+#/bin/sh
+
+cd $basePath
+echo -e "\n${lightYellowColor}Change to direcotry - [ $currentPath - $basePath ]!${endColor} \n"
+
+echo -e "\n${magentaColor}Start scripts installation!${endColor} \n"
+
+for element in ${scripts[@]}
+do
+    while true; do
+        read -p "Do you wish to install this script - [ $greenColor$element$endColor ] (Y/n)? " yn
+        case ${yn:-Y} in
+            [Yy]* ) source "$element"; break;;
+            [Nn]* ) break;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    done
+done 
+
+echo -e "\n${magentaColor}Finished scripts installation!${endColor}"
+
+cd $currentPath
+echo -e "\n${lightYellowColor}Change back to direcotry - [ $currentPath ]!${endColor} \n"
