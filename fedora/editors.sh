@@ -1,4 +1,3 @@
-#/bin/sh
 
 sudo dnf -y install emacs vim
 echo "set tabstop=4" >> ~/.vimrc
