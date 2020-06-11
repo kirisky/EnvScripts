@@ -1,0 +1,56 @@
+#/bin/sh
+
+# 
+# Plugins Repo 
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins
+#
+
+needToLogout=false
+needToExitScript=false
+
+check_if_zsh_exists()
+{
+    if [ ! -f "$zshShellPath" ]; then
+        needToExitScript=true
+        echo "${redColor}Zsh${endColor} does not exist in the machine."
+
+        read -p "Do you want to install [ ${greenColor}zsh${endColor} ]? (Y/n)? " yn
+        case ${yn:-Y} in
+            [Yy]* ) sudo dnf -y install zsh; needToLogout=true;;
+            [Nn]* ) ;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    fi
+}
+
+check_if_oh_my_zsh_exists()
+{
+    if [ ! -d "$ohMyZshFolderPath" ]; then
+        needToExitScript=true
+        echo "oh-my-zsh does not exist in the machine."
+
+        read -p "Do you want to install [ ${greenColor}oh-my-zsh${endColor} ]? (Y/n)? " yn
+        case ${yn:-Y} in
+            [Yy]* ) sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"; needToLogout=true;;
+            [Nn]* ) ;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    fi
+}
+
+check_zsh_and_omz()
+{
+
+    check_if_zsh_exists
+    check_if_oh_my_zsh_exists
+
+    if [ $needToLogout = true ]; then
+        echo "${redColor}Zsh or Oh-my-zsh have been installed, may need to logout and rerun the installation script. The script is terminated. ${endColor}"
+        exit
+    fi
+
+    if [ $needToExitScript = true ]; then
+        echo "${redColor}Zsh or Oh-my-zsh do not exist on this machine, the script is terminated.${endColor}"
+        exit
+    fi
+}
