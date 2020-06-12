@@ -47,7 +47,7 @@ check_zsh_and_omz()
     check_if_oh_my_zsh_exists
 
     if [ $needToLogout = true ]; then
-        echo "${redColor}Zsh or Oh-my-zsh have been installed, may need to logout and rerun the installation script. The script is terminated. ${endColor}"
+        echo "${redColor}Zsh or Oh-my-zsh are installed, may need to logout and rerun the installation script. The script is terminated. ${endColor}"
         exit
     fi
 
