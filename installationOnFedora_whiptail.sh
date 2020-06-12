@@ -55,6 +55,12 @@ check_zsh_and_omz
 # Reference
 # https://saveriomiroddi.github.io/Shell-scripting-adventures-part-3/#check-list
 #
+
+if [ ! -f "/usr/bin/whiptail" ]; then
+    echo "Whiptail does not exist on this machine. Will install it on this machine."
+    sudo dnf -y install newt
+fi
+
 title='Fedora Dev-Env Installation'
 message='What apps do you want to install?'
 scriptIndex=1
