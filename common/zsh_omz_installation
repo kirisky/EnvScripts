@@ -13,7 +13,7 @@ check_if_zsh_exists()
     if [ ! -f "$zshShellPath" ]; then
         needToExitScript=true
         echo "${redColor}Zsh${endColor} does not exist in the machine."
-        echo "After the zsh installation, please rerun the installation script."
+        echo "${redColor}After the zsh installation, please logout first and rerun the installation script.${endColor}"
 
         read -p "Do you want to install [ ${greenColor}zsh${endColor} ]? (Y/n)?" yn
         case ${yn:-Y} in
