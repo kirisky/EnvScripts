@@ -13,8 +13,9 @@ check_if_zsh_exists()
     if [ ! -f "$zshShellPath" ]; then
         needToExitScript=true
         echo "${redColor}Zsh${endColor} does not exist in the machine."
+        echo "After the zsh installation, please rerun the installation script."
 
-        read -p "Do you want to install [ ${greenColor}zsh${endColor} ]? (Y/n)? After the installation, please rerun the script." yn
+        read -p "Do you want to install [ ${greenColor}zsh${endColor} ]? (Y/n)?" yn
         case ${yn:-Y} in
             [Yy]* ) sudo dnf -y install zsh util-linux-user; needToLogout=true;;
             [Nn]* ) ;;
