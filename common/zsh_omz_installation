@@ -20,6 +20,8 @@ check_if_zsh_exists()
             [Nn]* ) ;;
             * ) echo "Please answer yes or no.";;
         esac
+
+        sudo dnf -y install util-linux-user
     fi
 }
 
