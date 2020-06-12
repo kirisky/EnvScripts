@@ -16,12 +16,10 @@ check_if_zsh_exists()
 
         read -p "Do you want to install [ ${greenColor}zsh${endColor} ]? (Y/n)? " yn
         case ${yn:-Y} in
-            [Yy]* ) sudo dnf -y install zsh; needToLogout=true;;
+            [Yy]* ) sudo dnf -y install zsh util-linux-user; needToLogout=true;;
             [Nn]* ) ;;
             * ) echo "Please answer yes or no.";;
         esac
-
-        sudo dnf -y install util-linux-user
     fi
 }
 
