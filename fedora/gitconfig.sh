@@ -2,6 +2,7 @@
 # global info
 git config --global user.name "kirisky"
 git config --global user.email youandox@gmail.com
+git config --global core.editor vim
 
 # global alias
 git config --global alias.co checkout
